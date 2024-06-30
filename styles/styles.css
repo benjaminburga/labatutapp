@@ -1,0 +1,230 @@
+/* styles.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0rem 3rem;
+}
+
+header {
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+    padding: 1rem;
+}
+
+header .logo h1 img {
+    width: 50px;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 29pt;
+}
+
+header .logo p {
+    padding: 1rem;
+}
+
+nav ul {
+    display: flex; /* Cambiar a display flex para alinear los elementos */
+    justify-content: center; /* Centrar los elementos horizontalmente */
+    list-style-type: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el padding predeterminado */
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 10px; /* Espacio entre elementos de la lista */
+}
+
+nav ul li ul {
+    display: none; /* Ocultar subcategorías por defecto */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    list-style-type: none;
+    padding: 10px;
+    z-index: 1000;
+}
+
+nav ul li:hover > ul {
+    display: block; /* Mostrar subcategorías al pasar el ratón */
+}
+
+nav ul li ul li {
+    margin: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px; /* Tamaño de fuente ajustado */
+    padding: 10px;
+    display: block;
+}
+
+main {
+    padding: 20px;
+}
+
+.featured-news {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transition: left 0.5s;
+}
+
+.carousel-item.active {
+    left: 0;
+}
+
+.carousel-item.previous {
+    left: -100%;
+}
+
+.latest-news {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.news-grid article {
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.news-grid article:hover {
+    transform: translateY(-10px);
+}
+
+.news-grid h3 {
+    margin-top: 0;
+}
+
+.news-grid p {
+    margin: 10px 0;
+}
+
+.news-grid a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.editorial {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-us {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+aside {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.newsletter {
+    margin-bottom: 20px;
+}
+
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.newsletter button {
+    padding: 10px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: #0056b3;
+}
+
+.social-media ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-media ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-media ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.social-media ul li a img {
+    width: 20px;
+}
+
+footer {
+    color: black;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+}
+
+footer p {
+    padding: 1rem;
+}

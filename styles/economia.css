@@ -1,0 +1,59 @@
+/* Estilos para los artículos de noticias */
+.news-grid article {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.3s;
+    border-radius: 10px;
+    position: relative;
+}
+
+.news-grid article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.news-grid article img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.news-grid article h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.news-grid article p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.news-grid article a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.news-grid article a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el enlace de "Leer más" */
+.news-grid article .read-more {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007BFF;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.news-grid article .read-more:hover {
+    background-color: #0056b3;
+}

@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descripción de tu sitio web">
+    <meta name="keywords" content="revista digital, La Batuta, Perú, noticias, economía, política, noticias internacionales, deportes, cultura, ciencia, tecnología">
+    <meta name="author" content="Benjamin Burga">
+    <meta property="og:title" content="La Batuta - Revista Peruana Pulirversal">
+    <meta property="og:description" content="Revista digital">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.labatutapp.com">
+    <meta property="og:image" content="https://www.ejemplo.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="La Batuta - Revista Peruana Pulirversal">
+    <meta name="twitter:description" content="Revista digital">
+    <meta name="twitter:image" content="https://www.ejemplo.com/images/twitter-image.jpg">
     <title>La Batuta - Revista Peruana Pulirversal</title>
     <link rel="stylesheet" href="styles/phone.css">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="icon" href="images/favicon.ico">
 </head>
-<body>
+
+
+<body class="loading">
     <header>
+        <div class="time">
+            <p> <span id="time"></span></p>
+        </div>
         <div class="logo">
             <h1>LA BATUTA <img src="images/logo.jpeg" alt="La Batuta Logo"></h1>
             <p>Revista peruana pulirversal</p>
@@ -83,45 +102,52 @@
         <section class="featured-news">
             <h2>Noticias Destacadas</h2>
             <div class="carousel">
-                <img src="images/featured1.jpg" alt="Noticia Destacada 1" class="carousel-item">
-                <img src="images/featured2.jpg" alt="Noticia Destacada 2" class="carousel-item">
-                <img src="images/featured3.jpg" alt="Noticia Destacada 3" class="carousel-item">
+                <img src="images/noticias1.jpg" alt="Noticia Destacada 1" class="carousel-item">
+                <img src="images/noticias2.jpg" alt="Noticia Destacada 2" class="carousel-item">
+                <img src="images/noticias3.jpg" alt="Noticia Destacada 3" class="carousel-item">
             </div>
         </section>
         <section class="latest-news">
-            <h2>Últimas Noticias</h2>
+            <h2>Noticias Recientes</h2>
             <div class="news-grid">
                 <article>
-                    <h3>Economía: Crecimiento en el último trimestre</h3>
+                    <img src="economia.jpg" alt="Economía">
+                    <h3><a href="articulo-economia.html">Economía: Crecimiento en el último trimestre</a></h3>
                     <p>Resumen del artículo de economía...</p>
-                    <a href="#">Leer más</a>
+                    <a href="economia.html">Leer más</a>
                 </article>
                 <article>
-                    <h3>Política: Nuevas reformas en el congreso</h3>
+                    <img src="politica.jpg" alt="Política">
+                    <h3><a href="articulo-politica.html">Política: Nuevas reformas en el congreso</a></h3>
                     <p>Resumen del artículo de política...</p>
-                    <a href="#">Leer más</a>
+                    <a href="politica.html">Leer más</a>
                 </article>
                 <article>
-                    <h3>Internacionales: Cumbre Global de Medio Ambiente</h3>
+                    <img src="internacionales.jpg" alt="Internacionales">
+                    <h3><a href="articulo-internacionales.html">Internacionales: Cumbre Global de Medio Ambiente</a></h3>
                     <p>Resumen del artículo internacional...</p>
-                    <a href="#">Leer más</a>
+                    <a href="articulo-internacionales.html">Leer más</a>
                 </article>
                 <article>
-                    <h3>Deportes: Resultados de la última jornada</h3>
+                    <img src="deportes.jpg" alt="Deportes">
+                    <h3><a href="articulo-deportes.html">Deportes: Resultados de la última jornada</a></h3>
                     <p>Resumen del artículo de deportes...</p>
-                    <a href="#">Leer más</a>
+                    <a href="articulo-deportes.html">Leer más</a>
                 </article>
                 <article>
-                    <h3>Cultura: Festival de Cine en Lima</h3>
+                    <img src="cultura.jpg" alt="Cultura">
+                    <h3><a href="articulo-cultura.html">Cultura: Festival de Cine en Lima</a></h3>
                     <p>Resumen del artículo de cultura...</p>
-                    <a href="#">Leer más</a>
+                    <a href="articulo-cultura.html">Leer más</a>
                 </article>
                 <article>
-                    <h3>Opiniones: Análisis sobre la economía actual</h3>
+                    <img src="opiniones.jpg" alt="Opiniones">
+                    <h3><a href="articulo-opiniones.html">Opiniones: Análisis sobre la economía actual</a></h3>
                     <p>Resumen del artículo de opinión...</p>
-                    <a href="#">Leer más</a>
+                    <a href="articulo-opiniones.html">Leer más</a>
                 </article>
             </div>
+            
         </section>
         <section class="editorial">
             <h2>Editorial</h2>
@@ -135,8 +161,19 @@
             <p>La Batuta es una revista peruana dedicada a ofrecer noticias y análisis en diversas áreas como economía, política, internacionales, deportes, cultura, ciencia y tecnología. Nuestro objetivo es proporcionar información precisa y profunda para nuestros lectores.</p>
         </section>
         <section class="daily-pdf">
-            <h2>Revista del Día</h2>
-            <embed src="path_to_your_daily_pdf_file.pdf" type="application/pdf" width="100%" height="600px">
+            <h2 id="pdfTitle">Revista del Día</h2>
+            <button id="openPdfBtn">Abrir PDF</button>
+        </section>
+        
+        <div id="pdfModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <embed id="pdfViewer" src="" type="application/pdf" width="100%" height="600px">
+            </div>
+        </div>
+        <section class="pdf-section">
+            <h2>Ve nuestras Revistas anteriores </h2>
+            <div class="pdf-list"></div>
         </section>
     </main>
     <aside>
@@ -158,7 +195,7 @@
         </section>
     </aside>
     <footer>
-        <button id="scrollToTopBtn" title="Ir arriba"><i class="fas fa-arrow-up" ><img src="images/flecha-hacia-arriba.png" alt="" width="25px"></i></button>
+        <button id="scrollToTopBtn" title="Ir arriba"><i class="fas fa-arrow-up"><img src="images/flecha-hacia-arriba.png" alt="" width="25px"></i></button>
         <hr>
         <hr>
         <p>&copy; 2024 La Batuta | Todos los derechos reservados</p>

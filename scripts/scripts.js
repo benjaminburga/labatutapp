@@ -1,5 +1,3 @@
-// scripts.js
-
 document.addEventListener('DOMContentLoaded', function() {
     const carouselItems = document.querySelectorAll('.carousel-item');
     let currentIndex = 0;
@@ -12,12 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
         carouselItems[currentIndex].classList.add('active');
     }
 
-    setInterval(showNextItem, 3000); // Cambia cada 3 segundos
+    setInterval(showNextItem, 9000); // Cambia cada 9 segundos
 
     console.log('Document is ready');
     // Puedes agregar más funcionalidad aquí
 });
-// scripts.js
 
 // Obtener el botón de scroll hacia arriba
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -76,3 +73,79 @@ function scrollToTopSmoothly() {
     // Iniciar la animación
     requestAnimationFrame(animation);
 }
+
+// Mostrar la hora actual
+document.addEventListener('DOMContentLoaded', function() {
+    function updateTime() {
+        const now = new Date();
+        const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric', 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit' 
+        };
+        const formattedTime = now.toLocaleDateString('en-US', options);
+        document.getElementById('time').textContent = formattedTime;
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+});
+
+// Obtener elementos del DOM para la gestión de PDFs
+const pdfTitle = document.getElementById('pdfTitle');
+const openPdfBtn = document.getElementById('openPdfBtn');
+const pdfModal = document.getElementById('pdfModal');
+const pdfViewer = document.getElementById('pdfViewer');
+
+// Manejar clic en el botón para abrir el modal y cargar el PDF
+openPdfBtn.addEventListener('click', function() {
+    pdfModal.style.display = 'block'; // Mostrar modal
+
+    // Aquí establece la URL del PDF que deseas mostrar
+    const pdfUrl = 'pdf/La Batuta 56 - junio 2024.pdf';
+    pdfViewer.setAttribute('src', pdfUrl);
+});
+
+// Manejar clic en cerrar modal
+pdfModal.querySelector('.close').addEventListener('click', function() {
+    pdfModal.style.display = 'none'; // Ocultar modal
+});
+
+// Gestionar la lista de PDFs
+document.addEventListener('DOMContentLoaded', function() {
+    const pdfListContainer = document.querySelector('.pdf-list');
+
+    // Array simulado de archivos PDF (puedes obtener estos nombres de tu sistema de gestión de archivos)
+    const pdfFiles = [
+        { name: 'La Batuta 56 - junio 2024', url: 'pdf/La Batuta 56 - junio 2024.pdf' },
+        { name: 'La Batuta 57 - julio 2024', url: 'pdf/La Batuta 57 - julio 2024.pdf' },
+        { name: 'La Batuta 58 - agosto 2024', url: 'pdf/La Batuta 58 - agosto 2024.pdf' }
+        // Agrega más archivos PDF según sea necesario
+    ];
+
+    // Función para crear elementos de lista de PDF
+    function renderPDFList() {
+        pdfFiles.forEach(function(pdf) {
+            const pdfItem = document.createElement('div');
+            pdfItem.classList.add('pdf-item');
+            pdfItem.innerHTML = `<a href="${pdf.url}" target="_blank">${pdf.name}</a>`;
+            pdfListContainer.appendChild(pdfItem);
+        });
+    }
+
+    // Llamar a la función para renderizar la lista de PDF
+    renderPDFList();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Remover la clase 'loading' después de cargar completamente la página
+    document.body.classList.remove('loading');
+});
+window.addEventListener('load', function() {
+    var preloader = document.querySelector('.preloader');
+    preloader.style.display = 'none';
+});
